@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="<%= config.site.lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %> | <%= config.site.title %></title>
+    <meta name="description" content="<%= post.description %>">
+    <meta name="author" content="<%= post.author %>">
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="<%= post.title %>">
+    <meta property="og:description" content="<%= post.description %>">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<%= config.site.url %>/posts/<%= post.slug %>/">
+    <% if (config.seo.ogImage) { %>
+    <meta property="og:image" content="<%= config.site.url + config.seo.ogImage %>">
+    <% } %>
+    <meta name="twitter:card" content="<%= config.seo.twitterCard %>">
+    <meta name="twitter:title" content="<%= post.title %>">
+    <meta name="twitter:description" content="<%= post.description %>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">✍️ <%= config.site.title %></a>
+            </div>
+            <ul class="nav-links">
+                <% config.navigation.filter(item => item.active).forEach(item => { %>
+                    <li><a href="<%= item.path %>"><%= item.name %></a></li>
+                <% }) %>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article class="post-single">
+            <div class="container-small">
+                <header class="post-header">
+                    <h1><%= post.title %></h1>
+                    <div class="post-meta">
+                        <time datetime="<%= post.date %>">
+                            <%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                        </time>
+                        <% if (config.blog.showAuthor) { %>
+                            <span class="separator">•</span>
+                            <span class="author">by <%= post.author %></span>
+                        <% } %>
+                    </div>
+                    <% if (config.blog.showTags && post.tags && post.tags.length > 0) { %>
+                        <div class="post-tags">
+                            <% post.tags.forEach(tag => { %>
+                                <span class="tag"><%= tag %></span>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                </header>
+
+                <div class="post-content">
+                    <%- post.content %>
+                </div>
+
+                <div class="post-footer">
+                    <a href="/" class="back-link">← Back to all posts</a>
+                </div>
+            </div>
+        </article>
+
+        <% if (config.features.relatedPosts && posts && posts.length > 1) { %>
+            <section class="related-posts">
+                <div class="container-small">
+                    <h2>More Posts</h2>
+                    <div class="posts-list">
+                        <% posts.filter(p => p.slug !== post.slug).slice(0, 3).forEach(relatedPost => { %>
+                            <article class="post-item">
+                                <h3>
+                                    <a href="/posts/<%= relatedPost.slug %>/">
+                                        <%= relatedPost.title %>
+                                    </a>
+                                </h3>
+                                <time datetime="<%= relatedPost.date %>">
+                                    <%= new Date(relatedPost.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                </time>
+                            </article>
+                        <% }) %>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <%= new Date().getFullYear() %> <%= config.site.title %>. Built with Node.js & EJS SSG.</p>
+            <% if (config.social.twitter || config.social.github || config.social.linkedin) { %>
+                <div class="social-links">
+                    <% if (config.social.twitter) { %><a href="<%= config.social.twitter %>" target="_blank">Twitter</a><% } %>
+                    <% if (config.social.github) { %><a href="<%= config.social.github %>" target="_blank">GitHub</a><% } %>
+                    <% if (config.social.linkedin) { %><a href="<%= config.social.linkedin %>" target="_blank">LinkedIn</a><% } %>
+                </div>
+            <% } %>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="<%= config.site.lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= config.site.title %></title>
+    <meta name="description" content="<%= config.site.description %>">
+    <meta name="author" content="<%= config.site.author %>">
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="<%= config.site.title %>">
+    <meta property="og:description" content="<%= config.site.description %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= config.site.url %>">
+    <% if (config.seo.ogImage) { %>
+    <meta property="og:image" content="<%= config.site.url + config.seo.ogImage %>">
+    <% } %>
+    <meta name="twitter:card" content="<%= config.seo.twitterCard %>">
+    <meta name="twitter:title" content="<%= config.site.title %>">
+    <meta name="twitter:description" content="<%= config.site.description %>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">✍️ <%= config.site.title %></a>
+            </div>
+            <ul class="nav-links">
+                <% config.navigation.filter(item => item.active).forEach(item => { %>
+                    <li><a href="<%= item.path %>" class="<%= item.path === '/' ? 'active' : '' %>"><%= item.name %></a></li>
+                <% }) %>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to <%= config.site.title %></h1>
+                <p><%= config.site.description %></p>
+            </div>
+        </section>
+
+        <section class="posts-section">
+            <div class="container">
+                <h2>Recent Posts</h2>
+                
+                <% if (posts.length === 0) { %>
+                    <p class="no-posts">No posts yet. Start writing!</p>
+                <% } else { %>
+                    <div class="posts-grid">
+                        <% posts.slice(0, config.blog.postsPerPage).forEach(post => { %>
+                            <article class="post-card">
+                                <div class="post-meta">
+                                    <time datetime="<%= post.date %>">
+                                        <%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                    </time>
+                                    <% if (config.blog.showAuthor) { %>
+                                        <span class="author">by <%= post.author %></span>
+                                    <% } %>
+                                </div>
+                                <h3>
+                                    <a href="/posts/<%= post.slug %>/">
+                                        <%= post.title %>
+                                    </a>
+                                </h3>
+                                <p class="post-description"><%= post.description %></p>
+                                <% if (config.blog.showTags && post.tags && post.tags.length > 0) { %>
+                                    <div class="post-tags">
+                                        <% post.tags.forEach(tag => { %>
+                                            <span class="tag"><%= tag %></span>
+                                        <% }) %>
+                                    </div>
+                                <% } %>
+                                <a href="/posts/<%= post.slug %>/" class="read-more">Read more →</a>
+                            </article>
+                        <% }) %>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <%= new Date().getFullYear() %> <%= config.site.title %>. Built with Node.js & EJS SSG.</p>
+            <% if (config.social.twitter || config.social.github || config.social.linkedin) { %>
+                <div class="social-links">
+                    <% if (config.social.twitter) { %><a href="<%= config.social.twitter %>" target="_blank">Twitter</a><% } %>
+                    <% if (config.social.github) { %><a href="<%= config.social.github %>" target="_blank">GitHub</a><% } %>
+                    <% if (config.social.linkedin) { %><a href="<%= config.social.linkedin %>" target="_blank">LinkedIn</a><% } %>
+                </div>
+            <% } %>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>
