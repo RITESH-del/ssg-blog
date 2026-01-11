@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Modern Web Applications with Node.js | Tech Blog</title>
+    <meta name="description" content="Explore the power of Node.js for building scalable and efficient web applications.">
+    <meta name="author" content="Jane Smith">
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Building Modern Web Applications with Node.js">
+    <meta property="og:description" content="Explore the power of Node.js for building scalable and efficient web applications.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ritesh-del.github.io//posts/post-2/">
+    
+    <meta property="og:image" content="https://ritesh-del.github.io//images/og-image.jpg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Modern Web Applications with Node.js">
+    <meta name="twitter:description" content="Explore the power of Node.js for building scalable and efficient web applications.">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">Tech Blog</a>
+            </div>
+            <ul class="nav-links">
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article class="post-single">
+            <div class="container-small">
+                <header class="post-header">
+                    <h1>Building Modern Web Applications with Node.js</h1>
+                    <div class="post-meta">
+                        <time datetime="2025-01-08">
+                            January 8, 2025
+                        </time>
+                        
+                            <span class="separator">•</span>
+                            <span class="author">by Jane Smith</span>
+                        
+                    </div>
+                    
+                        <div class="post-tags">
+                            
+                                <span class="tag">nodejs</span>
+                            
+                                <span class="tag">javascript</span>
+                            
+                                <span class="tag">backend</span>
+                            
+                        </div>
+                    
+                </header>
+
+                <div class="post-content">
+                    <h1>Building Modern Web Applications with Node.js</h1>
+<p>Node.js has become one of the most popular platforms for building web applications. Its non-blocking I/O model and vast ecosystem make it an excellent choice for modern web development.</p>
+<h2>Why Choose Node.js?</h2>
+<p>Node.js offers several advantages that make it stand out:</p>
+<ol>
+<li><strong>JavaScript Everywhere</strong> - Use the same language for both frontend and backend</li>
+<li><strong>NPM Ecosystem</strong> - Access to millions of packages and tools</li>
+<li><strong>Performance</strong> - Built on Chrome’s V8 engine for fast execution</li>
+<li><strong>Scalability</strong> - Event-driven architecture handles concurrent connections efficiently</li>
+</ol>
+<h2>Key Features</h2>
+<h3>Asynchronous Programming</h3>
+<p>Node.js excels at handling asynchronous operations:</p>
+<pre><code class="language-javascript">const fs = require('fs').promises;
+
+async function readFile() {
+  try {
+    const data = await fs.readFile('file.txt', 'utf8');
+    console.log(data);
+  } catch (error) {
+    console.error('Error reading file:', error);
+  }
+}
+</code></pre>
+<h3>Event-Driven Architecture</h3>
+<p>The event loop is at the heart of Node.js:</p>
+<pre><code class="language-javascript">const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+emitter.on('userLoggedIn', (username) =&gt; {
+  console.log(`${username} has logged in`);
+});
+
+emitter.emit('userLoggedIn', 'john_doe');
+</code></pre>
+<h2>Popular Node.js Frameworks</h2>
+<ul>
+<li><strong>Express</strong> - Minimal and flexible web framework</li>
+<li><strong>Koa</strong> - Modern framework by the Express team</li>
+<li><strong>NestJS</strong> - Progressive framework for enterprise applications</li>
+<li><strong>Fastify</strong> - High-performance web framework</li>
+</ul>
+<h2>Best Practices</h2>
+<ol>
+<li>Use environment variables for configuration</li>
+<li>Implement proper error handling</li>
+<li>Use async/await for cleaner asynchronous code</li>
+<li>Keep dependencies up to date</li>
+<li>Implement logging and monitoring</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Node.js provides a powerful platform for building modern web applications. Whether you’re creating APIs, real-time applications, or microservices, Node.js offers the tools and performance you need.</p>
+<p>Start building with Node.js today and experience the benefits of JavaScript everywhere!</p>
+
+                </div>
+
+                <div class="post-footer">
+                    <a href="/" class="back-link">← Back to all posts</a>
+                </div>
+            </div>
+        </article>
+
+        
+            <section class="related-posts">
+                <div class="container-small">
+                    <h2>More Posts</h2>
+                    <div class="posts-list">
+                        
+                            <article class="post-item">
+                                <h3>
+                                    <a href="/posts/post-3/">
+                                        Understanding REST APIs with Express.js
+                                    </a>
+                                </h3>
+                                <time datetime="2025-01-15">
+                                    January 15, 2025
+                                </time>
+                            </article>
+                        
+                            <article class="post-item">
+                                <h3>
+                                    <a href="/posts/post-1/">
+                                        Getting Started with Static Site Generators
+                                    </a>
+                                </h3>
+                                <time datetime="2025-01-05">
+                                    January 5, 2025
+                                </time>
+                            </article>
+                        
+                    </div>
+                </div>
+            </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tech Blog. Built with Node.js & EJS SSG.</p>
+            
+                <div class="social-links">
+                    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                </div>
+            
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>
