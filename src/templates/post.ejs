@@ -24,11 +24,11 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="/">✍️ <%= config.site.title %></a>
+                <a href="<%= config.basepath %>"><%= config.site.title %></a>
             </div>
             <ul class="nav-links">
                 <% config.navigation.filter(item => item.active).forEach(item => { %>
-                    <li><a href="<%= item.path %>"><%= item.name %></a></li>
+                    <li><a href="<%= config.basepath %>/<%= item.path %>"><%= item.name %></a></li>
                 <% }) %>
             </ul>
         </div>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="post-footer">
-                    <a href="/" class="back-link">← Back to all posts</a>
+                    <a href="<%= config.basepath %>" class="back-link">← Back to all posts</a>
                 </div>
             </div>
         </article>
@@ -75,7 +75,7 @@
                         <% posts.filter(p => p.slug !== post.slug).slice(0, 3).forEach(relatedPost => { %>
                             <article class="post-item">
                                 <h3>
-                                    <a href="/posts/<%= relatedPost.slug %>/">
+                                    <a href="<%= config.basepath %>/posts/<%= relatedPost.slug %>/">
                                         <%= relatedPost.title %>
                                     </a>
                                 </h3>

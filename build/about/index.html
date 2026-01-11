@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="<%= config.site.lang %>">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | <%= config.site.title %></title>
-    <meta name="description" content="Learn more about <%= config.site.title %> and its author">
+    <title>About | Tech Blog</title>
+    <meta name="description" content="Learn more about Tech Blog and its author">
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="<%= config.basepath %>">✍️ <%= config.site.title %></a>
+                <a href="/ssg-blog">✍️ Tech Blog</a>
             </div>
             <ul class="nav-links">
-                <% config.navigation.filter(item => item.active).forEach(item => { %>
-                    <li><a href="<%= config.basepath %>/<%= item.path %>" class="<%= item.path === '/about/' ? 'active' : '' %>"><%= item.name %></a></li>
-                <% }) %>
+                
+                    <li><a href="/ssg-blog//" class="">Home</a></li>
+                
+                    <li><a href="/ssg-blog//about/" class="active">About</a></li>
+                
             </ul>
         </div>
     </nav>
@@ -24,13 +26,13 @@
     <main>
         <section class="about-section">
             <div class="container-small">
-                <h1>About <%= config.site.title %></h1>
+                <h1>About Tech Blog</h1>
                 
                 <div class="about-content">
-                    <p><%= config.site.description %></p>
+                    <p>A modern blog built with Node.js SSG</p>
                     
                     <h2>About the Author</h2>
-                    <p><strong><%= config.site.author %></strong></p>
+                    <p><strong>Ritesh Kumar</strong></p>
                     <p>This is where you can write about yourself, your background, interests, and why you started this blog.</p>
 
                     <h2>Tech Stack</h2>
@@ -52,18 +54,18 @@
                         <li>Configurable via config.js</li>
                     </ul>
 
-                    <% if (config.social.twitter || config.social.github || config.social.linkedin || config.site.email) { %>
+                    
                         <h2>Connect</h2>
                         <ul>
-                            <% if (config.site.email) { %><li>Email: <a href="mailto:<%= config.site.email %>"><%= config.site.email %></a></li><% } %>
-                            <% if (config.social.twitter) { %><li><a href="<%= config.social.twitter %>" target="_blank">Twitter</a></li><% } %>
-                            <% if (config.social.github) { %><li><a href="<%= config.social.github %>" target="_blank">GitHub</a></li><% } %>
-                            <% if (config.social.linkedin) { %><li><a href="<%= config.social.linkedin %>" target="_blank">LinkedIn</a></li><% } %>
+                            <li>Email: <a href="mailto:riteshrishu2005@gmail.com">riteshrishu2005@gmail.com</a></li>
+                            <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+                            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
                         </ul>
-                    <% } %>
+                    
 
                     <div class="cta">
-                        <a href="<%= config.basepath %>" class="button">View All Posts</a>
+                        <a href="/ssg-blog" class="button">View All Posts</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +74,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; <%= new Date().getFullYear() %> <%= config.site.title %>. Built with Node.js & EJS SSG.</p>
+            <p>&copy; 2026 Tech Blog. Built with Node.js & EJS SSG.</p>
         </div>
     </footer>
 

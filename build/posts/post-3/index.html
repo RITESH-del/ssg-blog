@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding REST APIs with Express.js | Tech Blog</title>
+    <meta name="description" content="Learn how REST APIs work and how to build clean, scalable APIs using Express.js.">
+    <meta name="author" content="Jane Smith">
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Understanding REST APIs with Express.js">
+    <meta property="og:description" content="Learn how REST APIs work and how to build clean, scalable APIs using Express.js.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ritesh-del.github.io//posts/post-3/">
+    
+    <meta property="og:image" content="https://ritesh-del.github.io//images/og-image.jpg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Understanding REST APIs with Express.js">
+    <meta name="twitter:description" content="Learn how REST APIs work and how to build clean, scalable APIs using Express.js.">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/ssg-blog">Tech Blog</a>
+            </div>
+            <ul class="nav-links">
+                
+                    <li><a href="/ssg-blog//">Home</a></li>
+                
+                    <li><a href="/ssg-blog//about/">About</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article class="post-single">
+            <div class="container-small">
+                <header class="post-header">
+                    <h1>Understanding REST APIs with Express.js</h1>
+                    <div class="post-meta">
+                        <time datetime="2025-01-15">
+                            January 15, 2025
+                        </time>
+                        
+                            <span class="separator">•</span>
+                            <span class="author">by Jane Smith</span>
+                        
+                    </div>
+                    
+                        <div class="post-tags">
+                            
+                                <span class="tag">express</span>
+                            
+                                <span class="tag">nodejs</span>
+                            
+                                <span class="tag">api</span>
+                            
+                                <span class="tag">backend</span>
+                            
+                        </div>
+                    
+                </header>
+
+                <div class="post-content">
+                    <h1>Understanding REST APIs with Express.js</h1>
+<p>REST APIs are the backbone of modern web applications. They allow different systems to communicate efficiently using simple HTTP requests. Express.js makes building RESTful APIs in Node.js clean and straightforward.</p>
+<h2>What is a REST API?</h2>
+<p>REST (Representational State Transfer) is an architectural style based on:</p>
+<ul>
+<li>Client–server separation</li>
+<li>Stateless communication</li>
+<li>Standard HTTP methods</li>
+</ul>
+<p>Common HTTP methods:</p>
+<ul>
+<li><strong>GET</strong> – Fetch data</li>
+<li><strong>POST</strong> – Create data</li>
+<li><strong>PUT / PATCH</strong> – Update data</li>
+<li><strong>DELETE</strong> – Remove data</li>
+</ul>
+<hr>
+<h2>Why Use Express.js?</h2>
+<p>Express.js is one of the most popular Node.js frameworks because it is:</p>
+<ol>
+<li><strong>Minimal</strong> – No unnecessary abstractions</li>
+<li><strong>Flexible</strong> – Works with any database or frontend</li>
+<li><strong>Fast</strong> – Lightweight and efficient</li>
+<li><strong>Extensible</strong> – Huge middleware ecosystem</li>
+</ol>
+<hr>
+<h2>Creating a Simple API with Express</h2>
+<p>First, install Express:</p>
+<pre><code class="language-bash">npm install express
+</code></pre>
+<h2>Building RESTful Routes</h2>
+<p>Example user routes:</p>
+<pre><code class="language-js">app.get('/users', (req, res) =&gt; {
+  res.json({ users: [] });
+});
+
+app.post('/users', (req, res) =&gt; {
+  const user = req.body;
+  res.status(201).json(user);
+});
+</code></pre>
+<p>Each route represents a resource, not an action.</p>
+<h2>Middleware in Express</h2>
+<p>Middleware functions run between the request and response cycle.</p>
+<p>Example logging middleware:</p>
+<pre><code class="language-js">app.use((req, res, next) =&gt; {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+</code></pre>
+<p>Middleware is commonly used for:</p>
+<ul>
+<li>
+<p>Authentication</p>
+</li>
+<li>
+<p>Logging</p>
+</li>
+<li>
+<p>Error handling</p>
+</li>
+<li>
+<p>Request validation</p>
+</li>
+<li>
+<p>Error Handling Best Practices</p>
+</li>
+</ul>
+<p>Centralized error handling improves maintainability:</p>
+<pre><code class="language-js">app.use((err, req, res, next) =&gt; {
+  res.status(500).json({
+    message: err.message || 'Internal Server Error'
+  });
+});
+</code></pre>
+<h2>Best Practices for REST APIs</h2>
+<ol>
+<li>
+<p>Use proper HTTP status codes</p>
+</li>
+<li>
+<p>Keep routes resource-based</p>
+</li>
+<li>
+<p>Validate request data</p>
+</li>
+<li>
+<p>Use versioning (/api/v1)</p>
+</li>
+<li>
+<p>Secure APIs with authentication</p>
+</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Express.js provides a clean and efficient way to build REST APIs with Node.js. By following REST principles and best practices, you can create APIs that are scalable, maintainable, and easy to consume.</p>
+
+                </div>
+
+                <div class="post-footer">
+                    <a href="/ssg-blog" class="back-link">← Back to all posts</a>
+                </div>
+            </div>
+        </article>
+
+        
+            <section class="related-posts">
+                <div class="container-small">
+                    <h2>More Posts</h2>
+                    <div class="posts-list">
+                        
+                            <article class="post-item">
+                                <h3>
+                                    <a href="/ssg-blog/posts/post-2/">
+                                        Building Modern Web Applications with Node.js
+                                    </a>
+                                </h3>
+                                <time datetime="2025-01-08">
+                                    January 8, 2025
+                                </time>
+                            </article>
+                        
+                            <article class="post-item">
+                                <h3>
+                                    <a href="/ssg-blog/posts/post-1/">
+                                        Getting Started with Static Site Generators
+                                    </a>
+                                </h3>
+                                <time datetime="2025-01-05">
+                                    January 5, 2025
+                                </time>
+                            </article>
+                        
+                    </div>
+                </div>
+            </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tech Blog. Built with Node.js & EJS SSG.</p>
+            
+                <div class="social-links">
+                    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                </div>
+            
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

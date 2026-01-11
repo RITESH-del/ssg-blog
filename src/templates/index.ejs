@@ -24,11 +24,11 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="/">✍️ <%= config.site.title %></a>
+                <a href="<%= config.basepath %>"></a><%= config.site.title %></a>
             </div>
             <ul class="nav-links">
                 <% config.navigation.filter(item => item.active).forEach(item => { %>
-                    <li><a href="<%= item.path %>" class="<%= item.path === '/' ? 'active' : '' %>"><%= item.name %></a></li>
+                    <li><a href="<%= config.basepath %>/<%= item.path %>" class="<%= item.path === '/' ? 'active' : '' %>"><%= item.name %></a></li>
                 <% }) %>
             </ul>
         </div>
@@ -61,7 +61,7 @@
                                     <% } %>
                                 </div>
                                 <h3>
-                                    <a href="/posts/<%= post.slug %>/">
+                                    <a href="<%= config.basepath %>/posts/<%= post.slug %>/">
                                         <%= post.title %>
                                     </a>
                                 </h3>
@@ -73,7 +73,7 @@
                                         <% }) %>
                                     </div>
                                 <% } %>
-                                <a href="/posts/<%= post.slug %>/" class="read-more">Read more →</a>
+                                <a href="<%= config.basepath %>/posts/<%= post.slug %>/" class="read-more">Read more →</a>
                             </article>
                         <% }) %>
                     </div>

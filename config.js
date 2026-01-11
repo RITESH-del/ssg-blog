@@ -4,11 +4,11 @@
 module.exports = {
   // Site Metadata
   site: {
-    title: 'My Blog',
+    title: 'Tech Blog',
     description: 'A modern blog built with Node.js SSG',
-    author: 'Your Name',
-    email: 'your.email@example.com',
-    url: 'https://yourblog.com', // Your production URL (no trailing slash)
+    author: 'Ritesh Kumar',
+    email: 'riteshrishu2005@gmail.com',
+    url: 'https://ritesh-del.github.io/', // Your production URL (no trailing slash)
     lang: 'en',
     favicon: '/favicon.ico',
   },
@@ -52,6 +52,7 @@ module.exports = {
     build: './build',
   },
 
+  basepath: '/ssg-blog',
   // Build Settings
   build: {
     cleanBuild: true, // Clean build directory before building
